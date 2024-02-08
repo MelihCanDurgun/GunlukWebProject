@@ -1,0 +1,25 @@
+﻿@model Daily
+<div class="d-flex justify-content-center">
+    <div class="card col-10">
+        <form method="post">
+            <div class="card-header text-center bg-gradient bg-success text-white">Yeni Günlük Oluşturma Formu</div>
+            <div class="card-body">
+                <div class="mb-3 row">
+                    <label class="form-label" asp-for="Title">Günlük Adı</label>
+                    <input asp-for="Title" class="form-control" placeholder="Lütfen günlük adı giriniz" />
+                </div>
+                <div class="mb-3 row">
+                    <label class="form-label" asp-for="Description">Açıklama</label>
+                    <input asp-for="Description" class="form-control" placeholder="Lütfen Açıklama giriniz" />
+                </div>
+
+            </div>
+            <div class="card-footer text-center">
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+                <a asp-controller="Daily" asp-action="Index" class="btn btn-danger">Iptal</a>
+            </div>
+        </form>
+    </div>
+
+
+</div>

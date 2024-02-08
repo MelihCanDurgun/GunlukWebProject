@@ -1,0 +1,75 @@
+﻿@model List<Daily>
+
+
+
+
+
+
+<div class="d-flex justify-content-center">
+    <div id="mesaj" class="row col-10 ">
+        @if (TempData["success"] != null)
+        {
+            <div class="alert alert-success stilDeneme">
+                @TempData["success"]
+            </div>
+        }   
+
+    </div>
+</div>
+
+<div class="d-flex justify-content-center">
+    <div class="card col-10">
+
+        <div class="card-header text-center bg-gradient bg-success text-white">
+            <div class="row">
+                <div class="col-7 text-end">Günlük Listesi</div>
+                <div class="col-5 text-end"><a class="btn btn-sm btn-warning" asp-controller="Daily" asp-action="Add">Günlük Ekle</a></div>
+            </div>
+
+
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th >Id</th>
+                        <th >Günlük Adı</th>
+                        <th>Oluşturulma Tarihi</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.GunlukId</td>
+                            <td>@item.Title</td>
+                            <td>@item.DateCreated</td>
+                            <td>@item.Description</td>
+                            <td>
+                                <a asp-controller="Daily" asp-action="Update" asp-route-id="@item.GunlukId" class="btn btn-warning btn-sm">Düzenle</a>
+                                <a onclick="return confirm('Silmek istediğinizden emin misiniz ?')" asp-controller="Daily" asp-action="Delete" asp-route-id="@item.GunlukId" class="btn btn-danger btn-sm">Sil</a>
+                               
+                            </td>
+                        </tr>
+                    }
+                    
+                </tbody>
+            </table>
+
+
+        </div>
+       
+
+    </div>
+
+
+</div>
+@section Scripts
+{
+    <script>
+        $("#mesaj").slideUp(1).slideDown(1500).slideUp(1500);
+
+
+    </script>
+}
