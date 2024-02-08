@@ -15,7 +15,7 @@ namespace Gunluk.Web.Controllers
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                daily.Add(new Daily { GunlukId = (int)dr["Id"], DateCreated = (DateTime)dr["DateCreated"], Title = (string)dr["Title"], Description = (string)dr["Description"] });
+                daily.Add(new Daily { Id = (int)dr["Id"], DateCreated = (DateTime)dr["DateCreated"], Title = (string)dr["Title"], Description = (string)dr["Description"] });
             }
             conn.Close();
             return View(daily);
@@ -57,7 +57,7 @@ namespace Gunluk.Web.Controllers
             dr.Read();
             Daily daily = new Daily
             {
-                GunlukId = (int)dr["Id"],
+                Id = (int)dr["Id"],
                 DateCreated = (DateTime)dr["DateCreated"],
                 Title = (string)dr["Title"],
                 Description = (string)dr["Description"]
