@@ -1,0 +1,26 @@
+﻿@model User
+<div class="d-flex justify-content-center">
+    <div class="card col-10">
+        <form method="post">
+            <div class="card-header text-center bg-gradient bg-success text-white">Yeni Günlük Oluşturma Formu</div>
+            <div class="card-body">
+                <div class="mb-3 row">
+                    <label class="form-label" asp-for="Username">Ad ve Soyad</label>
+                    <input asp-for="Username" class="form-control" placeholder="Lütfen Ad ve Soyad giriniz" />
+                </div>
+                <div class="mb-3 row">
+                    <label class="form-label" asp-for="Password">Şifre</label>
+                    <input asp-for="Password" class="form-control" placeholder="Lütfen Şifre giriniz" />
+                </div>
+                
+
+            </div>
+            <div class="card-footer text-center">
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+                <a asp-controller="User" asp-action="Index" class="btn btn-danger">Iptal</a>
+            </div>
+        </form>
+    </div>
+
+
+</div>
